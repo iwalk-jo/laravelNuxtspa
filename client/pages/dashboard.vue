@@ -2,8 +2,8 @@
   <b-container>
     <b-row>
       <b-col cols="6" class="mx-auto">
-        <b-card title="Public Home page">
-          Welcome Home
+        <b-card title="Private Dashboard">
+          Welcome <b>{{ $auth.user.name }}</b>
         </b-card>
       </b-col>
     </b-row>
@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  // auth: false
+  middleware: "auth"
 };
 </script>
