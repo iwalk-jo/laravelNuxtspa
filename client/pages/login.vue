@@ -30,38 +30,38 @@
 </template>
 
 <script>
+//   export default {
+//     methods: {
+//         login() {
+//             this.$auth.loginWith('laravelSanctum', {
+//                 data: {
+//                     email: 'jo101014wizcon@gmail.com',
+//                     password: 'password'
+//                 }
+//             })
+//         }
+//     }
+// }
+
 export default {
+  middleware: ['guest'],
+  data() {
+    return {
+      form: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+
   methods: {
     login() {
       this.$auth.loginWith('laravelSanctum', {
-        data: {
-          email: 'jo101014wizcon@gmail.com',
-          password: 'password'
-        }
+        data: this.form
       })
+        .then(response => console.log('Login successful:', response))
+        .catch(error => console.log('Login error:', error));
     }
   }
-}
-
-// export default {
-//   middleware: ['guest'],
-//   data() {
-//     return {
-//       form: {
-//         email: '',
-//         password: ''
-//       }
-//     };
-//   },
-
-//   methods: {
-//     login() {
-//       this.$auth.loginWith('laravelSanctum', {
-//         data: this.form
-//       })
-//         .then(response => console.log('Login successful:', response))
-//         .catch(error => console.log('Login error:', error));
-//     }
-//   }
-// };
+};
 </script>
