@@ -25,14 +25,14 @@ return new class extends Migration {
             $table->string('zip_code');
             $table->longText('description');
             $table->year('build_year');
-            $table->float('units');
+            $table->integer('units');
             $table->timestamps();
 
             $table->foreign('broker_id')
                 ->references('id')
                 ->on('brokers')
                 ->cascadeOnDelete();
-            $table->unique(['address', 'zip_code', 'units']);
+            $table->unique(['address', 'zip_code']);
         });
     }
 
