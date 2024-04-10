@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/logo.svg' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap'
@@ -51,32 +51,31 @@ export default {
     '@nuxtjs/auth-next'
   ],
 
-  
+    // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: '/',
+  },
   
   auth: {
     strategies: {
       laravelSanctum: {
         provider: 'laravel/sanctum',
         url: 'http://localhost:8000',
-        cookie: {
-          endpoints: {
-              csrf: {
-                  url: '/sanctum/csrf-cookie'
-              },
-              login: {
-                  url: '/login'
-              },
-              logout: {
-                  url: '/logout'
-              },
-              user: {
-                  url: '/user'
-              }
+        endpoints:{
+          login:{
+            url: '/api/login'
           },
-          user: {
-              property: 'data'
+          register:{
+            url: '/api/register'
           },
-      },
+          logout:{
+            url: '/api/logout'
+          },
+          user:{
+            url: '/api/user'
+          }
+        },
         user: {
           property: false
         }
@@ -87,11 +86,10 @@ export default {
       login: '/login',
       logout: '/',
       home: '/dashboard'
-    },
-
-    plugins: ['~/plugins/axios'],
+    }
 
   },
+
 
     // Defaults options
     tailwindcss: {
@@ -105,10 +103,10 @@ export default {
       editorSupport: true,
     },
 
-    axios: {
-      baseURL: 'http://localhost:8000',
-      credentials: true,
-  },
+  //   axios: {
+  //     baseURL: 'http://localhost:8000',
+  //     credentials: true,
+  // },
 
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
