@@ -1,9 +1,33 @@
 <template>
-  <div class="container mx-auto">
-    <div class="w-1/2 mx-auto">
-      <div class="bg-white p-5 rounded-lg">
-        <h2 class="text-lg font-bold mb-4">Private Dashboard</h2>
-        <p class="text-gray-700">Welcome <span class="font-bold">{{ $auth.user.first_name }}</span></p>
+  <div>
+    <!-- Header -->
+    <DashboardHeader />
+    <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
+      <!-- Sidebar -->
+      <DashboardSidebar class="sticky top-[65px] hidden h-[calc(100vh-65px)] py-5 lg:col-span-3 lg:block" />
+
+      <!-- Main Section -->
+      <main class="py-5 lg:col-span-6">
+        <!-- Section Title and Button -->
+        <DashboardStatusCard />
+        <!-- Listing Cards Starts-->
+        <!-- index all -->
+
+        <!-- Card Table - checkbox, name, feature action-->
+
+        <!-- Property list - property type, address, built year-->
+
+        <!-- Pagination -->
+
+        <!-- Listing Cards Ends-->
+
+      </main>
+      <div class="hidden py-5 lg:col-span-3 lg:block">
+        <!-- Profile info to the side -->
+        <DashboardProfileInfo />
+        <hr class="my-5" />
+        <!-- Reminders to the side -->
+
       </div>
     </div>
   </div>
