@@ -1,5 +1,6 @@
 <template>
     <div>
+        <index />
         <!-- Removed <index /> since it's unclear what it refers to -->
         <div class="container mx-auto mt-5 md:w-1/2 lg:w-1/3">
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -28,43 +29,6 @@
 </template>
 
 <script>
-export default {
-    middleware: ['guest'],
-    data() {
-        return {
-            form: {
-                email: '',
-                password: ''
-            }
-        };
-    },
-
-    methods: {
-        login() {
-            this.$auth.loginWith('laravelSanctum', {
-                data: this.form
-            })
-                .then(response => console.log('Login successful:', response))
-                .catch(error => console.log('Login error:', error));
-        }
-    }
-};
-</script>
-
-<script>
-//   export default {
-//     methods: {
-//         login() {
-//             this.$auth.loginWith('laravelSanctum', {
-//                 data: {
-//                     email: 'jo101014wizcon@gmail.com',
-//                     password: 'password'
-//                 }
-//             })
-//         }
-//     }
-// }
-
 export default {
     middleware: ['guest'],
     data() {

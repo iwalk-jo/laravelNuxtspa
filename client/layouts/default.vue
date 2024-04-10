@@ -10,7 +10,7 @@
                     </NuxtLink>
 
                     <div class="flex items-center text-sm font-semibold">
-                        <template v-if="$auth.user">
+                        <template v-if="$auth.loggedIn">
                             <a href="" class="text-gray-700 hover:text-purple-700" @click.prevent="logout">
                                 Log Out
                             </a>
