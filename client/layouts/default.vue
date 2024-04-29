@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="bg-white">
-            <main class="shadow">
-                <div
-                    class="max-w-screen-lg mx-auto flex flex-row justify-between items-center p-4 sm:p-7 relative z-10 space-x-2 sm:space-x-3">
-                    <NuxtLink to="/" class="block">
-                        <h1 class="text-2xl font-black"><span class="text-purple-700">Property </span>List
-                        </h1>
-                    </NuxtLink>
 
+        <div class="fixed top-0 left-0 w-full z-50 bg-white border-b backdrop-blur-lg bg-opacity-80">
+            <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
+                <div class="relative flex h-16 justify-between">
+                    <div class="flex flex-1 items-stretch justify-start">
+                        <NuxtLink to="/" class="flex flex-shrink-0 items-center">
+                            <img class="block h-12 w-auto" src="https://www.svgrepo.com/show/501888/donut.svg">
+                        </NuxtLink>
+                    </div>
                     <div class="flex items-center text-sm font-semibold">
                         <template v-if="$auth.loggedIn">
                             <a href="" class="text-gray-700 hover:text-purple-700" @click.prevent="logout">
@@ -30,13 +30,14 @@
                         </template>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
 
-        <div class="max-w-screen-lg mx-auto p-4 sm:p-7 mt-10">
+        <div class="w-full mt-16">
             <Nuxt />
         </div>
     </div>
+
 </template>
 
 <script>
